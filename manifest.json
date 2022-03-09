@@ -1,0 +1,11 @@
+{
+  "name": "Chilicon Cloud Platform",
+  "domain": "chilicon_cloud",
+  "documentation": "https://github.com/mww/chilicon-cloud",
+  "dependencies": [],
+  "codeowners": ["@mww"],
+  "config_flow": false,
+  "requirements": [],
+  "iot_class": "cloud_polling",
+  "version": "2022.03.1"
+}
