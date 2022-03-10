@@ -1,8 +1,8 @@
-# Load platform example
+# Chilicon Cloud Integration
 
-This is an example of an integration loading its platforms from its own set up, and passing information on to the platforms.
+This integration creates a sensor that exposes solar power data from [Chilicon](https://chiliconpower.com/) microinverters.
 
-Use this approach only if your integration is configured solely via `configuration.yaml` and does not use config entries.
+This is an integration that loads its platforms from its own set up, based on [this](https://github.com/home-assistant/example-custom-config/tree/master/custom_components/example_load_platform/) example. It also draws heavily from [this](https://aarongodfrey.dev/home%20automation/building_a_home_assistant_custom_component_part_1/) blog post by Aaron Godfrey. It does not use the config flow which is the preferred method to setup integrations.
 
 ### Installation
 
@@ -12,7 +12,7 @@ Add the following entry in your `configuration.yaml`:
 
 ```yaml
 chilicon_cloud:
-  username: ${chilicon_username}
+  username: me@example.com
   password: !secret chilicon_password
   installation_hash: abcd...123
 ```
