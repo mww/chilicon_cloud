@@ -70,7 +70,7 @@ async def async_setup_platform(
 class ChiliconSensor(SensorEntity):
     """Representation of a sensor."""
 
-    _attr_name = "Chilicon power daily"
+    _attr_name = "Chilicon energy daily"
     _attr_native_unit_of_measurement = ENERGY_KILO_WATT_HOUR
     _attr_device_class = SensorDeviceClass.ENERGY
     _attr_state_class = SensorStateClass.TOTAL_INCREASING
