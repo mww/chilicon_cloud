@@ -64,19 +64,19 @@ async def async_setup_platform(
     cc = ChiliconCloud(session, user, pw, hash)
     await cc.login()
 
-    async_add_entities([ChiliconSensor(cc)], update_before_add=True)
+    async_add_entities([ChiliconDailySensor(cc)], update_before_add=True)
 
 
-class ChiliconSensor(SensorEntity):
+class ChiliconDailySensor(SensorEntity):
     """Representation of a sensor."""
 
-    _attr_name = "Chilicon energy daily"
+    _attr_name = "Chilicon Solar Energy Daily Generated"
     _attr_native_unit_of_measurement = ENERGY_KILO_WATT_HOUR
     _attr_device_class = SensorDeviceClass.ENERGY
     _attr_state_class = SensorStateClass.TOTAL_INCREASING
 
     def __init__(self, cc: ChiliconCloud):
-        _LOGGER.debug("in ChiliconSensor.__init__()")
+        _LOGGER.debug("in ChiliconDailySensor.__init__()")
         self.cc = cc
 
     async def async_update(self) -> None:
@@ -96,7 +96,7 @@ class ChiliconSensor(SensorEntity):
             self.hass.data[DOMAIN]['energy'] = kwh
 
         self._attr_native_value = kwh
-        _LOGGER.debug("updated energy: {}".format(kwh))
+        _LOGGER.info("updated energy: {} kWh".format(kwh))
 
 class ChiliconCloud():
     def __init__(
